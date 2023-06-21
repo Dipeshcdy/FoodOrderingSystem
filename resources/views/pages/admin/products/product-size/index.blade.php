@@ -13,7 +13,7 @@
 
 <!-- Main content -->
 <div class="text-right mr-4">
-    <a href="{{route('product_size.create')}}" class="btn btn-primary rounded-circle my-2 mx-2"><i class="fa fa-plus"></i></a>
+    <a href="{{route('product_size.create')}}" class="btn btn-primary my-2 mx-2">Add Size</a>
 </div>
 <section class="content">
     <div class="container-fluid">

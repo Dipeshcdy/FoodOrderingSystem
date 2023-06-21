@@ -27,11 +27,15 @@
             <div class="card-body justify-content-between d-flex">
               <h2 class="fs-3">{{$product->name}}</h2>
               
-             
+                @guest
+                <div class="justify-content-center ">
+                    <h3 class="fs-5  my-auto">{{$product->price}} {{$product->size->name}}</h3>
+                </div>
+                @else
+                 
                 <div class="w-50">
                     <div class="d-flex w-100">
-                        @guest
-                        @else
+                       
                         <div class="d-flex my-auto w-50">
                             <label for="" class="me-4 fs-5">Quantity</label>
                             <div class="input-group">
@@ -49,23 +53,24 @@
                             </div>
                             {{-- <input type="number" > --}}
                         </div>
-                        @endguest
+                       
                         <div class="d-flex w-50 justify-content-center ">
                             <h3 class="fs-5  my-auto">{{$product->price}} {{$product->size->name}}</h3>
                         </div>
-                        @guest
-                        @else
+                        
                         <a onclick="addToCart({{$product->id}})" class="btn cursor-pointer text-decoration-none">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     
                         <input type="hidden" id="accessToken" value="{{Session::get('token')}}">
-                        @endguest
+                       
                         
                     
                     </div>
                
                 </div>
+                @endguest
+
             </div>
         </div>    
         @endforeach

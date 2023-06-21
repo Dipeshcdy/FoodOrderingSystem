@@ -27,26 +27,25 @@ class ProfileService{
         }
         return $response;
     }
-    public function validatePassword($inputs)
-    {
-        $validator = Validator::make($inputs, [
-            'oldPassword' => [
-                'required',
-                function ($attribute, $value, $fail) {
-                    if (!Hash::check($value, Auth::user()->password)) {
-                        $fail('The old password is incorrect.');
-                    }
-                },
-            ],
-            'password' => 'required|min:8|confirmed',
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        else{
+    // public function validatePassword($inputs)
+    // {
+    //     $validator = Validator::make($inputs, [
+    //         'oldPassword' => [
+    //             'required',
+    //             function ($attribute, $value, $fail) {
+    //                 if (!Hash::check($value, Auth::user()->password)) {
+    //                     $fail('The old password is incorrect.');
+    //                 }
+    //             },
+    //         ],
+    //         'password' => 'required|min:8|confirmed',
+    //     ]);
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+    //     else{
             
-            return "success";
-        }
-    }
-    
+    //         return "success";
+    //     }
+    // }    
 }

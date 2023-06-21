@@ -14,8 +14,9 @@ if (id && token) {
         // data: data,
         success: function (response){
             console.log(response);
-            
+           
             $.each(response, function(index, items) {
+            $totalPrice=0;
             var html = `
                 <div>
                 <h2 class="border-bottom border-secondary border-4 pb-2" style="font-size:20px;">${index} (${items[0].username})</h2>
@@ -23,9 +24,9 @@ if (id && token) {
                     <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Price</th>
+                        <th>Rate</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+                        <th>Price</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,7 +41,14 @@ if (id && token) {
 
                         </tr>
                         `;
+                $totalPrice=$totalPrice+item.qty*item.price;
             });
+             html += `
+                    <tr>
+                        <td colspan="3" style="text-align:right;">Total </td>
+                        <td>${$totalPrice}</td>
+                    </tr>
+                `;
 
             html += `
                         </tbody>
@@ -83,15 +91,16 @@ if (id && token) {
         // data: data,
         success: function (response){
             console.log(response);
+            $totalPrice=0;
             var html = `
                 <div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Price</th>
+                        <th>Rate</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+                        <th>Price</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,7 +115,15 @@ if (id && token) {
 
                         </tr>
                         `;
+                $totalPrice=$totalPrice+item.qty*item.price;
+                
             });
+            html += `
+                        <tr>
+                            <td colspan="3" style="text-align:right;">Total </td>
+                            <td>${$totalPrice}</td>
+                        </tr>
+                    `;
 
             html += `
                         </tbody>

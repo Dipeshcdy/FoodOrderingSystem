@@ -16,7 +16,7 @@ $data=['Dashboard'=>route('dashboard'),'Product Items'=>'#'];
         $sn=1;
         @endphp
 
-            <div class="container-fluid">
+            <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-12">
                         <div class="card" >

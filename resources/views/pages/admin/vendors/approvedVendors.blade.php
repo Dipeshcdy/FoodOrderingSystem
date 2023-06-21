@@ -20,7 +20,7 @@
             <!-- /.card-header -->
 
             <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover w-100">
+                <table id="example2" class="table table-bordered table-striped table-hover w-100">
                 <thead>
                 <tr>
                     
@@ -41,8 +41,8 @@
                         <tr>
                             
                             <td>{{$sn}}</td>
-                            <td>{{$vendor->user->username}}</td>
-                            <td>{{$vendor->user->email}}</td>
+                            <td>{{Str::limit($vendor->user->username,6)}}</td>
+                            <td>{{Str::limit($vendor->user->email,8)}}</td>
                             <td>{{$vendor->brand_name}}</td>
                             <td>{{$vendor->service}}</td>
                             <td>
@@ -61,7 +61,7 @@
                                 <a href="{{route('vendor.status',$vendor->id)}}" class="rounded-3 btn btn-success d-inline w-50 mx-2">active</a>
                                     
                                 @endif
-                                <a href="" class="rounded-3 btn btn-danger d-inline mx-2">delete</a>
+                                <a href="" class="rounded-3 btn btn-danger d-inline mx-2"><i class="fas fa-trash"></i></a>
                                 
                             </td>
                         </tr>

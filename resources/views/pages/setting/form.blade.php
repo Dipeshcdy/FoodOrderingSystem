@@ -2,7 +2,7 @@
 <form action="{{route('vendor.profile.update',$profile->vendor->id)}}" method="POST" enctype="multipart/form-data" class="py-5">
   @csrf
   @method('PUT')  
-  <div class="card w-100 py-5 px-5 container shadow" style="border-radius: 20px;">
+  <div class="card w-100 py-5 px-5 container shadow" >
         <div class="form-group row mt-3" >
             <label for="brand_name" class="col-sm-2 col-form-label" style="margin-top: -5px; font-size: 16px;">Brand Name</label>
             <div class="col-sm-10">

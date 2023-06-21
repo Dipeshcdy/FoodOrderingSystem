@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="pt-5">
-    <div class="card w-100 py-5 px-5 container shadow" style="border-radius: 20px;">
+    <div class="card w-100 py-5 px-5 container shadow">
         <h3 class=" mb-2 text-bold">User Info !</h3>
         <div class="form-group row mt-3" >
           <label  class="col-sm-2 col-form-label" style="margin-top: -5px; font-size: 16px;">User Name</label>

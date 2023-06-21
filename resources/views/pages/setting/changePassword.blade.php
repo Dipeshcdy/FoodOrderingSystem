@@ -22,7 +22,7 @@
 {{-- main content --}}
 
 <div class="pt-5">
-    <div class="card d-flex w-100 py-5 px-5 container shadow" style="border-radius: 20px;">
+    <div class="card d-flex w-100 py-5 px-5 container shadow" >
         
         <div class="w-50 mx-auto">
             <form action="{{route('password.change',$profile->id)}}" method="POST">

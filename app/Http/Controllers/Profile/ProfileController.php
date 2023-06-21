@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\passwordChangeRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\VendorRequest;
 use App\Services\VendorService;
@@ -53,46 +54,31 @@ class ProfileController extends Controller
         $profile=auth()->user();
         return view('pages.client.setting.changePassword',compact('profile'));
     }
-    public function changePassword(Request $request,$id)
+    public function changePassword(passwordChangeRequest $request,$id)
     {
         $user=Auth::user();
         $inputs=$request->all();
-        $validate=$this->profileService->validatePassword($inputs);
-        if($validate==="success")
+            
+        $response=$this->profileService->changePassword($inputs);
+        if($response['status']=='success')
         {
-            
-            $response=$this->profileService->changePassword($inputs);
-            if($response['status']=='success')
-            {
                 
-                Alert::success($response['status'], $response['message']);
-            }
-            else
-            {
-                Alert::error($response['status'], $response['message']);
+            Alert::success($response['status'], $response['message']);
+        }
+        else
+        {
+            Alert::error($response['status'], $response['message']);
                 
-            }
-            if($user->role->role==="admin")
-            {
+        }
+        if($user->role->role==="admin")
+        {
                 
-                return redirect(route('admin.profile'));
-            }
-            else{
-                
-                return redirect(route('vendor.profile'));
-            }
-            
-            
+            return redirect(route('admin.profile'));
         }
         else{
-            return $validate;
+                
+            return redirect(route('vendor.profile'));
         }
-        
-         
-    //    dd($inputs);
-    
-
-    
     }
     public function update(VendorRequest $request,$id)
     {

@@ -8,8 +8,8 @@
    <div class="w-75 rounded-4 p-4 shadow">
         <table class="table table-bordered">
             <thead>
-                <th>sn</th>
-                <th>name</th>
+                <th>SN</th>
+                <th>Mame</th>
                 <th>Rate</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -77,16 +77,6 @@
                         Shipping Address
                     </label>
                 </div>
-                {{-- <select class="form-select" aria-label="Default select example" required  class="w-100">
-                    @if ($userDetails && count($userDetails)>0)
-                        @foreach ($userDetails as $detail)
-                            <option value="{{$detail->address}}">{{$detail->address}}</option>
-                        @endforeach
-                    @else
-                    <option disabled >--Please fill up the user details first--</option>
-                    @endif
-                </select> --}}
-                {{-- <h4 class="mt-2 fw-bold text-center" style="color: #eeb200;">Shipping address</h4> --}}
                 <div class="d-flex mt-3">
                     <button type="submit" class="btn {{count($cartItems)<1?'disabled':''}}  mx-auto btn-danger w-full ">Checkout</button>
                     

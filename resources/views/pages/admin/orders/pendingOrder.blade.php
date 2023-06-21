@@ -139,7 +139,7 @@
         @csrf
 
       <div class="modal-body">
-        <select name="status" class="form-select form-select-lg mb-3" aria-label="Default select example">
+        <select name="status" id="inputGroupSelect01" class="custom-select form-select-lg mb-3" aria-label="Default select example">
           <option value="pending" selected>pending</option>
           <option value="processed">processed</option>
           <option value="canceled">canceled</option>
